@@ -36,7 +36,50 @@ Hanzi Writer is released under an [MIT](https://raw.githubusercontent.com/chanin
 
 The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skishore/makemeahanzi) project, which extracted the data from fonts by [Arphic Technology](http://www.arphic.com/), a Taiwanese font forge that released their work under a permissive license in 1999. You can redistribute and/or modify this data under the terms of the Arphic Public License as published by Arphic Technology Co., Ltd. A copy of this license can be found in [ARPHICPL.TXT](https://raw.githubusercontent.com/chanind/hanzi-writer-data/master/ARPHICPL.TXT).
 
-## Example code 
+## Example code for single character
+
+```
+<!-- Container for Hanzi Writer characters with flex display -->
+<div style="display: flex; gap: 20px;">
+  <!-- Container for first Hanzi Writer character -->
+  <div id="character-container1"
+    style="width: 200px; height: 200px; border: 1px solid #000;"></div>
+  <!-- Container for second Hanzi Writer character -->
+</div>
+<p><button id="animate-button">Start</button></p>
+<!-- Include Hanzi Writer library -->
+<p>
+  <script
+    src="https://cdn.jsdelivr.net/npm/hanzi-writer@2.1.0/dist/hanzi-writer.min.js">
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var writer1 = HanziWriter.create('character-container1', '你', {
+        width: 200,
+        height: 200,
+        padding: 10,
+        strokeColor: '#000000',
+        radicalColor: '#FF0000',
+        delayBetweenStrokes: 1000,
+      });
+
+
+      function chainAnimations() {
+        var delayBetweenAnimations = 1000; // milliseconds
+        writer1.hideCharacter();
+
+        writer1.animateCharacter();
+      }
+
+      document.getElementById('animate-button').addEventListener('click',
+        chainAnimations);
+
+    });
+  </script>
+</p>
+```
+
+## Example one code character  
 
 ```
 <!-- Container for Hanzi Writer characters with flex display -->
@@ -95,4 +138,91 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
     });
   </script>
 </p>
+```
+## Example code for 3 character
+
+```
+<!-- Description or title -->
+<p>Learn how to write the Chinese characters below:</p>
+
+<!-- Container for Hanzi Writer characters with flex display -->
+<div style="display: flex; gap: 20px;">
+    <!-- Container for first Hanzi Writer character -->
+    <div id="character-container1" style="width: 200px; height: 200px; border: 1px solid #000;"></div>
+
+    <!-- Container for second Hanzi Writer character -->
+    <div id="character-container2" style="width: 200px; height: 200px; border: 1px solid #000;"></div>
+
+    <!-- Container for third Hanzi Writer character -->
+    <div id="character-container3" style="width: 200px; height: 200px; border: 1px solid #000;"></div>
+</div>
+
+<!-- Button to trigger the chain animation -->
+<button id="animate-button" style="margin-top: 20px;">Animate Characters</button>
+
+<!-- Include Hanzi Writer library -->
+<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@2.1.0/dist/hanzi-writer.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Hanzi Writer for the first character "不"
+    var writer1 = HanziWriter.create('character-container1', '不', {
+        width: 200,
+        height: 200,
+        padding: 10,
+        strokeColor: '#000000',
+        radicalColor: '#FF0000',
+        delayBetweenStrokes: 1000,
+    });
+
+    // Initialize Hanzi Writer for the second character "客"
+    var writer2 = HanziWriter.create('character-container2', '客', {
+        width: 200,
+        height: 200,
+        padding: 10,
+        strokeColor: '#000000',
+        radicalColor: '#FF0000',
+        delayBetweenStrokes: 1000,
+    });
+
+    // Initialize Hanzi Writer for the third character "气"
+    var writer3 = HanziWriter.create('character-container3', '气', {
+        width: 200,
+        height: 200,
+        padding: 10,
+        strokeColor: '#000000',
+        radicalColor: '#FF0000',
+        delayBetweenStrokes: 1000,
+    });
+
+    // Function to chain the animations
+    function chainAnimations() {
+        var delayBetweenAnimations = 1000; // milliseconds
+        
+        writer1.hideCharacter();
+        writer2.hideCharacter();
+        writer3.hideCharacter();
+        
+        // Animate first character
+        writer1.animateCharacter({
+            onComplete: function() {
+                setTimeout(function() {
+                    // Animate second character
+                    writer2.animateCharacter({
+                        onComplete: function() {
+                            setTimeout(function() {
+                                // Animate third character
+                                writer3.animateCharacter();
+                            }, delayBetweenAnimations);
+                        }
+                    });
+                }, delayBetweenAnimations);
+            }
+        });
+    }
+
+    // Add event listener to the button
+    document.getElementById('animate-button').addEventListener('click', chainAnimations);
+});
+</script>
 ```
