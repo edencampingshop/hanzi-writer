@@ -35,3 +35,66 @@ You can run tests with `yarn test` and you can build the project with `yarn buil
 Hanzi Writer is released under an [MIT](https://raw.githubusercontent.com/chanind/hanzi-writer/master/LICENSE) license.
 
 The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skishore/makemeahanzi) project, which extracted the data from fonts by [Arphic Technology](http://www.arphic.com/), a Taiwanese font forge that released their work under a permissive license in 1999. You can redistribute and/or modify this data under the terms of the Arphic Public License as published by Arphic Technology Co., Ltd. A copy of this license can be found in [ARPHICPL.TXT](https://raw.githubusercontent.com/chanind/hanzi-writer-data/master/ARPHICPL.TXT).
+
+## Example code 
+
+```
+<!-- Container for Hanzi Writer characters with flex display -->
+<div style="display: flex; gap: 20px;">
+  <!-- Container for first Hanzi Writer character -->
+  <div id="character-container1"
+    style="width: 200px; height: 200px; border: 1px solid #000;"></div>
+  <!-- Container for second Hanzi Writer character -->
+  <div id="character-container2"
+    style="width: 200px; height: 200px; border: 1px solid #000;"></div>
+</div>
+<p><button id="animate-button">Start</button></p>
+<!-- Include Hanzi Writer library -->
+<p>
+  <script
+    src="https://cdn.jsdelivr.net/npm/hanzi-writer@2.1.0/dist/hanzi-writer.min.js">
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Hanzi Writer for the first character "你"
+      var writer1 = HanziWriter.create('character-container1', '你', {
+        width: 200,
+        height: 200,
+        padding: 10,
+        strokeColor: '#000000',
+        radicalColor: '#FF0000',
+        delayBetweenStrokes: 1000,
+      });
+
+
+      // Initialize Hanzi Writer for the second character "好"
+      var writer2 = HanziWriter.create('character-container2', '好', {
+        width: 200,
+        height: 200,
+        padding: 10,
+        strokeColor: '#000000',
+        radicalColor: '#FF0000',
+        delayBetweenStrokes: 1000,
+      });
+
+      function chainAnimations() {
+        var delayBetweenAnimations = 1000; // milliseconds
+        writer1.hideCharacter();
+        writer2.hideCharacter();
+
+        writer1.animateCharacter({
+          onComplete: function() {
+            setTimeout(function() {
+              writer2.animateCharacter();
+            }, delayBetweenAnimations);
+          }
+        });
+      }
+
+      document.getElementById('animate-button').addEventListener('click',
+        chainAnimations);
+
+    });
+  </script>
+</p>
+```
