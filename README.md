@@ -79,7 +79,7 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
 </p>
 ```
 
-## Example one code character  
+## Example code for two characters  
 
 ```
 <!-- Container for Hanzi Writer characters with flex display -->
@@ -139,7 +139,7 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
   </script>
 </p>
 ```
-## Example code for 3 character
+## Example code for 3 characters
 
 ```
 <!-- Description or title -->
