@@ -56,7 +56,6 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Initialize Hanzi Writer for the first character "你"
       var writer1 = HanziWriter.create('character-container1', '你', {
         width: 200,
         height: 200,
@@ -67,7 +66,6 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
       });
 
 
-      // Initialize Hanzi Writer for the second character "好"
       var writer2 = HanziWriter.create('character-container2', '好', {
         width: 200,
         height: 200,
