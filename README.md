@@ -143,7 +143,6 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
 
 ```
 <!-- Description or title -->
-<p>Learn how to write the Chinese characters below:</p>
 
 <!-- Container for Hanzi Writer characters with flex display -->
 <div style="display: flex; gap: 20px;">
@@ -165,7 +164,6 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Hanzi Writer for the first character "不"
     var writer1 = HanziWriter.create('character-container1', '不', {
         width: 200,
         height: 200,
@@ -175,7 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
         delayBetweenStrokes: 1000,
     });
 
-    // Initialize Hanzi Writer for the second character "客"
     var writer2 = HanziWriter.create('character-container2', '客', {
         width: 200,
         height: 200,
@@ -185,7 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
         delayBetweenStrokes: 1000,
     });
 
-    // Initialize Hanzi Writer for the third character "气"
     var writer3 = HanziWriter.create('character-container3', '气', {
         width: 200,
         height: 200,
