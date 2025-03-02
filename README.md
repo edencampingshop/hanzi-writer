@@ -85,13 +85,13 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
 <!-- Container for Hanzi Writer characters with flex display -->
 <div style="display: flex; gap: 20px;">
   <!-- Container for first Hanzi Writer character -->
-  <div id="character-container1"
+  <div id="div_nihao_1"
     style="width: 200px; height: 200px; border: 1px solid #000;"></div>
   <!-- Container for second Hanzi Writer character -->
-  <div id="character-container2"
+  <div id="div_nihao_2"
     style="width: 200px; height: 200px; border: 1px solid #000;"></div>
 </div>
-<p><button id="animate-button">Start</button></p>
+<p><button id="btn_nihao">Start</button></p>
 <!-- Include Hanzi Writer library -->
 <p>
   <script
@@ -99,7 +99,8 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var writer1 = HanziWriter.create('character-container1', '你', {
+      // Initialize Hanzi Writer for the first character "你"
+      var writer_nihao_1 = HanziWriter.create('div_nihao_1', '你', {
         width: 200,
         height: 200,
         padding: 10,
@@ -109,7 +110,8 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
       });
 
 
-      var writer2 = HanziWriter.create('character-container2', '好', {
+      // Initialize Hanzi Writer for the second character "好"
+      var writer_nihao_2 = HanziWriter.create('div_nihao_2', '好', {
         width: 200,
         height: 200,
         padding: 10,
@@ -120,24 +122,25 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
 
       function chainAnimations() {
         var delayBetweenAnimations = 1000; // milliseconds
-        writer1.hideCharacter();
-        writer2.hideCharacter();
+        writer_nihao_1.hideCharacter();
+        writer_nihao_2.hideCharacter();
 
-        writer1.animateCharacter({
+        writer_nihao_1.animateCharacter({
           onComplete: function() {
             setTimeout(function() {
-              writer2.animateCharacter();
+              writer_nihao_2.animateCharacter();
             }, delayBetweenAnimations);
           }
         });
       }
 
-      document.getElementById('animate-button').addEventListener('click',
+      document.getElementById('btn_nihao').addEventListener('click',
         chainAnimations);
 
     });
   </script>
 </p>
+
 ```
 ## Example code for 3 characters
 
@@ -147,24 +150,24 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
 <!-- Container for Hanzi Writer characters with flex display -->
 <div style="display: flex; gap: 20px;">
     <!-- Container for first Hanzi Writer character -->
-    <div id="character-container1" style="width: 200px; height: 200px; border: 1px solid #000;"></div>
+    <div id="div_bukeqi_1" style="width: 200px; height: 200px; border: 1px solid #000;"></div>
 
     <!-- Container for second Hanzi Writer character -->
-    <div id="character-container2" style="width: 200px; height: 200px; border: 1px solid #000;"></div>
+    <div id="div_bukeqi_2" style="width: 200px; height: 200px; border: 1px solid #000;"></div>
 
     <!-- Container for third Hanzi Writer character -->
-    <div id="character-container3" style="width: 200px; height: 200px; border: 1px solid #000;"></div>
+    <div id="div_bukeqi_3" style="width: 200px; height: 200px; border: 1px solid #000;"></div>
 </div>
 
 <!-- Button to trigger the chain animation -->
-<button id="animate-button" style="margin-top: 20px;">Animate Characters</button>
+<button id="btn_bukeqi" style="margin-top: 20px;">Animate Characters</button>
 
 <!-- Include Hanzi Writer library -->
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@2.1.0/dist/hanzi-writer.min.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    var writer1 = HanziWriter.create('character-container1', '不', {
+    var writer_bukeqi_1 = HanziWriter.create('div_bukeqi_1', '不', {
         width: 200,
         height: 200,
         padding: 10,
@@ -173,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
         delayBetweenStrokes: 1000,
     });
 
-    var writer2 = HanziWriter.create('character-container2', '客', {
+    var writer_bukeqi_2 = HanziWriter.create('div_bukeqi_2', '客', {
         width: 200,
         height: 200,
         padding: 10,
@@ -182,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
         delayBetweenStrokes: 1000,
     });
 
-    var writer3 = HanziWriter.create('character-container3', '气', {
+    var writer_bukeqi_3 = HanziWriter.create('div_bukeqi_3', '气', {
         width: 200,
         height: 200,
         padding: 10,
@@ -192,23 +195,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Function to chain the animations
-    function chainAnimations() {
+    function chainAnimationsPage1() {
         var delayBetweenAnimations = 1000; // milliseconds
         
-        writer1.hideCharacter();
-        writer2.hideCharacter();
-        writer3.hideCharacter();
+        writer_bukeqi_1.hideCharacter();
+        writer_bukeqi_2.hideCharacter();
+        writer_bukeqi_3.hideCharacter();
         
         // Animate first character
-        writer1.animateCharacter({
+        writer_bukeqi_1.animateCharacter({
             onComplete: function() {
                 setTimeout(function() {
                     // Animate second character
-                    writer2.animateCharacter({
+                    writer_bukeqi_2.animateCharacter({
                         onComplete: function() {
                             setTimeout(function() {
                                 // Animate third character
-                                writer3.animateCharacter();
+                                writer_bukeqi_3.animateCharacter();
                             }, delayBetweenAnimations);
                         }
                     });
@@ -218,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Add event listener to the button
-    document.getElementById('animate-button').addEventListener('click', chainAnimations);
+    document.getElementById('btn_bukeqi').addEventListener('click', chainAnimationsPage1);
 });
 </script>
 ```
