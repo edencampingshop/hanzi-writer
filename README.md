@@ -42,11 +42,11 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
 <!-- Container for Hanzi Writer characters with flex display -->
 <div style="display: flex; gap: 20px;">
   <!-- Container for first Hanzi Writer character -->
-  <div id="character-container1"
+  <div id="div_qing"
     style="width: 200px; height: 200px; border: 1px solid #000;"></div>
   <!-- Container for second Hanzi Writer character -->
 </div>
-<p><button id="animate-button">Start</button></p>
+<p><button id="btn_qing">Start</button></p>
 <!-- Include Hanzi Writer library -->
 <p>
   <script
@@ -54,7 +54,7 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var writer1 = HanziWriter.create('character-container1', '你', {
+      var writer_qing = HanziWriter.create('div_qing', '请', {
         width: 200,
         height: 200,
         padding: 10,
@@ -66,12 +66,12 @@ The Hanzi Writer data comes from the [Make Me A Hanzi](https://github.com/skisho
 
       function chainAnimations() {
         var delayBetweenAnimations = 1000; // milliseconds
-        writer1.hideCharacter();
+        writer_qing.hideCharacter();
 
-        writer1.animateCharacter();
+        writer_qing.animateCharacter();
       }
 
-      document.getElementById('animate-button').addEventListener('click',
+      document.getElementById('btn_qing').addEventListener('click',
         chainAnimations);
 
     });
